@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eating Out - Interactive Vocabulary Learning</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">🍽️ Eating Out Vocabulary</h1>
+            <nav class="nav">
+                <button class="nav-btn active" data-section="vocabulary">Vocabulary</button>
+                <button class="nav-btn" data-section="scenarios">Scenarios</button>
+                <button class="nav-btn" data-section="menu-planning">Menu Planning</button>
+                <button class="nav-btn" data-section="games">Games</button>
+            </nav>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Vocabulary Explorer Section -->
+        <section id="vocabulary" class="section active">
+            <div class="container">
+                <h2 class="section-title">📚 Vocabulary Explorer</h2>
+                <div class="vocabulary-categories">
+                    <div class="category-card" data-category="course-types">
+                        <div class="category-icon">🍽️</div>
+                        <h3>Course Types</h3>
+                        <p>Appetizer, Main Course, Dessert</p>
+                    </div>
+                    <div class="category-card" data-category="menu-labels">
+                        <div class="category-icon">🏷️</div>
+                        <h3>Menu Labels</h3>
+                        <p>Vegetarian, Gluten-Free, Spicy</p>
+                    </div>
+                    <div class="category-card" data-category="pricing">
+                        <div class="category-icon">🧾</div>
+                        <h3>Pricing & Styles</h3>
+                        <p>À la Carte, Prix Fixe, Happy Hour</p>
+                    </div>
+                    <div class="category-card" data-category="portions">
+                        <div class="category-icon">🍔</div>
+                        <h3>Portions & Add-Ons</h3>
+                        <p>Small, Large, Combo, Extra</p>
+                    </div>
+                    <div class="category-card" data-category="service">
+                        <div class="category-icon">🛎️</div>
+                        <h3>Service Styles</h3>
+                        <p>Table Service, Buffet, Take-Out</p>
+                    </div>
+                </div>
+
+                <!-- Vocabulary Cards Container -->
+                <div class="vocabulary-cards" id="vocabularyCards">
+                    <!-- Cards will be dynamically generated -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Scenarios Section -->
+        <section id="scenarios" class="section">
+            <div class="container">
+                <h2 class="section-title">🎭 Interactive Scenarios</h2>
+                <div class="scenario-container">
+                    <div class="scenario-card" id="currentScenario">
+                        <div class="scenario-content">
+                            <h3 id="scenarioTitle">Loading scenario...</h3>
+                            <p id="scenarioDescription">Please wait while we load the scenario.</p>
+                            <div class="scenario-cues" id="scenarioCues"></div>
+                        </div>
+                        <div class="scenario-options" id="scenarioOptions">
+                            <!-- Options will be dynamically generated -->
+                        </div>
+                        <div class="scenario-feedback" id="scenarioFeedback"></div>
+                        <div class="scenario-controls">
+                            <button class="btn btn-secondary" id="prevScenario">Previous</button>
+                            <span class="scenario-counter" id="scenarioCounter">1 / 11</span>
+                            <button class="btn btn-primary" id="nextScenario">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Planning Section -->
+        <section id="menu-planning" class="section">
+            <div class="container">
+                <h2 class="section-title">🍽️ Menu Planning Simulator</h2>
+                <div class="menu-planning-container">
+                    <div class="menu-section">
+                        <h3>Restaurant Menu</h3>
+                        <div class="menu-categories">
+                            <div class="menu-category">
+                                <h4>🥗 Appetizers</h4>
+                                <div class="menu-items">
+                                    <div class="menu-item" data-price="8.99" data-category="appetizer">
+                                        <span class="item-name">Caesar Salad</span>
+                                        <span class="item-price">$8.99</span>
+                                        <button class="add-btn">+</button>
+                                    </div>
+                                    <div class="menu-item" data-price="12.99" data-category="appetizer">
+                                        <span class="item-name">Buffalo Wings</span>
+                                        <span class="item-price">$12.99</span>
+                                        <button class="add-btn">+</button>
+                                    </div>
+                                    <div class="menu-item" data-price="9.99" data-category="appetizer">
+                                        <span class="item-name">Mozzarella Sticks</span>
+                                        <span class="item-price">$9.99</span>
+                                        <button class="add-btn">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-category">
+                                <h4>🍖 Main Courses</h4>
+                                <div class="menu-items">
+                                    <div class="menu-item" data-price="24.99" data-category="main">
+                                        <span class="item-name">Grilled Salmon</span>
+                                        <span class="item-price">$24.99</span>
+                                        <button class="add-btn">+</button>
+                                    </div>
+                                    <div class="menu-item" data-price="22.99" data-category="main">
+                                        <span class="item-name">Chicken Parmesan</span>
+                                        <span class="item-price">$22.99</span>
+                                        <button class="add-btn">+</button>
+                                    </div>
+                                    <div class="menu-item" data-price="28.99" data-category="main">
+                                        <span class="item-name">Ribeye Steak</span>
+                                        <span class="item-price">$28.99</span>
+                                        <button class="add-btn">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-category">
+                                <h4>🍰 Desserts</h4>
+                                <div class="menu-items">
+                                    <div class="menu-item" data-price="7.99" data-category="dessert">
+                                        <span class="item-name">Chocolate Cake</span>
+                                        <span class="item-price">$7.99</span>
+                                        <button class="add-btn">+</button>
+                                    </div>
+                                    <div class="menu-item" data-price="6.99" data-category="dessert">
+                                        <span class="item-name">Ice Cream</span>
+                                        <span class="item-price">$6.99</span>
+                                        <button class="add-btn">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-section">
+                        <h3>Your Order</h3>
+                        <div class="order-items" id="orderItems">
+                            <p class="empty-order">No items selected</p>
+                        </div>
+                        <div class="order-summary">
+                            <div class="summary-line">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">$0.00</span>
+                            </div>
+                            <div class="summary-line">
+                                <span>Tip (18%):</span>
+                                <span id="tip">$0.00</span>
+                            </div>
+                            <div class="summary-line total">
+                                <span>Total:</span>
+                                <span id="total">$0.00</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="clearOrder">Clear Order</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Games Section -->
+        <section id="games" class="section">
+            <div class="container">
+                <h2 class="section-title">🎮 Games & Activities</h2>
+                <div class="games-grid">
+                    <div class="game-card" data-game="matching">
+                        <div class="game-icon">🎯</div>
+                        <h3>Vocabulary Matching</h3>
+                        <p>Match words with their definitions</p>
+                        <button class="btn btn-primary">Play</button>
+                    </div>
+                    <div class="game-card" data-game="quiz">
+                        <div class="game-icon">⚡</div>
+                        <h3>Quick Quiz</h3>
+                        <p>Test your knowledge with timed questions</p>
+                        <button class="btn btn-primary">Play</button>
+                    </div>
+                    <div class="game-card" data-game="listening">
+                        <div class="game-icon">🎧</div>
+                        <h3>Listening Practice</h3>
+                        <p>Listen and identify vocabulary words</p>
+                        <button class="btn btn-primary">Play</button>
+                    </div>
+                </div>
+
+                <!-- Game Content Area -->
+                <div class="game-content" id="gameContent">
+                    <!-- Game content will be dynamically loaded -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Audio Elements -->
+    <audio id="audioPlayer" preload="none"></audio>
+
+    <!-- Scripts -->
+    <script src="vocabulary-data.js"></script>
+    <script src="scenarios-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
